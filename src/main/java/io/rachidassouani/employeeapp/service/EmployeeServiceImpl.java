@@ -16,8 +16,22 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
+    @Override
     public List<Employee> findAll() {
         return employeeRepository.findAll();
     }
+
+    @Override
+    public Employee save(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    @Override
+    public Employee findById(int id) {
+        return employeeRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteById(int id) { employeeRepository.deleteById(id); }
 
 }

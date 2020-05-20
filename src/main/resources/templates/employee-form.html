@@ -8,18 +8,25 @@
 <body style="margin-top:40px">
     <div class="container col-md-6 col-md-offset-3">
         <h3>Employee Directory</h3>
-        <form action="#" th:action="@{/employees/save}" th:object="${employee}" method="post">
-           <div class="form-group">
-               <input type="text" th:field="*{firstName}" class="form-control" placeholder="First Name">
-           </div>
-           <div class="form-group">
-               <input type="text" th:field="*{lastName}" class="form-control" placeholder="Last Name">
-           </div>
-           <div class="form-group">
-               <input type="email" th:field="*{email}" class="form-control" placeholder="email">
-           </div>
-            <button type="submit" class="btn btn-primary">save</button>
-       </form>
+        <hr>
+        <p>Save Employee</p>
+        <form action="#" th:action="@{/api/v1/employees/save}" th:object="${employee}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-group">
+                <input th:field="*{firstName}" class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <input th:field="*{lastName}" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+                <input th:field="*{email}" class="form-control" placeholder="email">
+            </div>
+
+            <button type="submit" class="btn btn-info">save</button>
+            <hr>
+            <a th:href="@{/api/v1/employees}" class="btn btn-primary">Back to Employee</a>
+        </form>
     </div>
 </body>
 </html>
